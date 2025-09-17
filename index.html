@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>出会える仕組みをつくる — 助けを求められない子どもたちへ</title>
+  <meta name="description" content="見えないところで助けを必要とする子に、確実に出会い、つなぐ。語り口とデザインで伝えるストーリーテリングページ。" />
+  <meta property="og:title" content="出会える仕組みをつくる — 助けを求められない子どもたちへ" />
+  <meta property="og:description" content="見えないところで助けを必要とする子に、確実に出会い、つなぐ。語り口とデザインで伝えるストーリーテリングページ。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjYzMCI+CiAgPGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+CiAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMGIxMDIwIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjNGY0NmU1Ii8+CiAgPC9saW5lYXJHcmFkaWVudD48L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjEyMDAiIGhlaWdodD0iNjMwIiBmaWxsPSJ1cmwoI2cpIi8+CiAgPGcgZm9udC1mYW1pbHk9InN5c3RlbS11aSwtYXBwbGUtc3lzdGVtLFNlZ29lIFVJLFJvYm90byxIZWx2ZXRpY2EsQXJpYWwiIGZpbGw9IiNmZmYiPgogICAgPHRleHQgeD0iNjAiIHk9IjIxMCIgZm9udC1zaXplPSI2MCIgZm9udC13ZWlnaHQ9IjcwMCI+5Ye65Lya44GI44KL5LuV57WE44G/44KS44Gk44GP44KLPC90ZXh0PgogICAgPHRleHQgeD0iNjAiIHk9IjI4MCIgZm9udC1zaXplPSIzMiIgb3BhY2l0eT0iLjkiPuWKqeOBkeOCkuaxguOCgeOCieOCjOOBquOBhOWtkOOBqeOCguOBn+OBoeOBuDwvdGV4dD4KICAgIDx0ZXh0IHg9IjYwIiB5PSIzNTAiIGZvbnQtc2l6ZT0iMjQiIG9wYWNpdHk9Ii44Ij5TY3JvbGx5dGVsbGluZyBUZW1wbGF0ZTwvdGV4dD4KICA8L2c+Cjwvc3ZnPg==" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #0f172a;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --accent: #6366f1;
+      --accent-2: #22d3ee;
+      --radius: 16px;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --w: clamp(320px, 90vw, 980px);
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+      background:
+        radial-gradient(1200px 600px at 10% -10%, rgba(99,102,241,.25), transparent 70%),
+        radial-gradient(1000px 500px at 110% 10%, rgba(34,211,238,.2), transparent 60%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      letter-spacing: .02em;
+    }
+    a { color: var(--accent-2); }
+    .wrap { width: var(--w); margin: 0 auto; padding: 0 20px; }
+    header.top {
+      position: sticky; top: 0; z-index: 40;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(180deg, rgba(11,16,32,.8), rgba(11,16,32,.3));
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .top .inner { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 0; }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); }
+    .brand .dot { width: 12px; height: 12px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent-2)); box-shadow: 0 0 0 4px rgba(99,102,241,.15); }
+    .brand span { font-weight: 700; letter-spacing: .02em; }
+    nav a { text-decoration: none; color: var(--muted); margin-left: 14px; font-size: 14px; }
+    nav a:hover, nav a:focus { color: var(--text); }
+    .hero { padding: min(14vh, 12rem) 0 min(10vh, 8rem); }
+    .hero h1 { font-size: clamp(28px, 7vw, 54px); line-height: 1.2; margin: 0 0 16px; letter-spacing: .01em; }
+    .hero p.sub { font-size: clamp(16px, 2.4vw, 20px); color: var(--muted); margin: 0 0 28px; max-width: 48ch; }
+    .cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn { appearance: none; border: none; cursor: pointer; padding: 12px 18px; border-radius: 999px; font-weight: 700; background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: white; box-shadow: var(--shadow); }
+    .btn.secondary { background: rgba(255,255,255,.08); color: var(--text); }
+    .btn:focus { outline: 2px solid var(--accent-2); outline-offset: 2px; }
+    .label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; }
+    .panel {
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: var(--radius);
+      padding: clamp(16px, 3vw, 28px);
+      box-shadow: var(--shadow);
+    }
+    .grid { display: grid; gap: 16px; }
+    .grid.cols-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .grid.cols-3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
+    @media (max-width: 860px) { .grid.cols-2, .grid.cols-3 { grid-template-columns: 1fr; } nav a { margin-left: 10px; } }
+    .progress { position: fixed; left: 14px; top: 64px; bottom: 14px; width: 4px; border-radius: 6px; background: rgba(255,255,255,.07); }
+    .progress .bar { position: absolute; left: 0; bottom: 0; width: 100%; height: 0; background: linear-gradient(180deg, var(--accent), var(--accent-2)); border-radius: 6px; box-shadow: 0 4px 14px rgba(34,211,238,.4); }
+    main { counter-reset: sec; }
+    section.scene { padding: 48px 0; position: relative; scroll-margin-top: 72px; }
+    section.scene .title { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+    section.scene .title .num { counter-increment: sec; width: 36px; height: 36px; border-radius: 999px; display: grid; place-items: center; font-weight: 800; background: rgba(99,102,241,.15); }
+    section.scene .title h2 { margin: 0; font-size: clamp(20px, 3.8vw, 30px); }
+    .bubble { border-radius: 16px; padding: 14px 16px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08); }
+    .bubble.you { background: rgba(99,102,241,.12); border-color: rgba(99,102,241,.25); }
+    .bubble.fact { background: rgba(16,185,129,.12); border-color: rgba(16,185,129,.25); }
+    .chip { display: inline-block; padding: 4px 10px; border-radius: 999px; font-size: 12px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12); color: var(--muted); }
+    .card { border-radius: var(--radius); background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.06); padding: 16px; display: grid; gap: 8px; }
+    .reveal { opacity: 0; transform: translateY(8px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+    .footer { font-size: 13px; color: var(--muted); padding: 40px 0 80px; }
+    .skip { position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+    .skip:focus { position: fixed; left: 16px; top: 16px; width: auto; height: auto; padding: 8px 12px; background: #111827; color: white; z-index: 50; border-radius: 8px; }
+    @media (prefers-reduced-motion: reduce) { .reveal { transition: none; } }
+  </style>
+</head>
+<body>
+  <a href="#content" class="skip">本文にスキップ</a>
+  <div class="progress" aria-hidden="true"><div class="bar" id="progressBar"></div></div>
+
+  <header class="top" role="banner">
+    <div class="wrap inner">
+      <a class="brand" href="#">
+        <i class="dot" aria-hidden="true"></i>
+        <span>Storytelling</span>
+      </a>
+      <nav aria-label="ページ内ナビ">
+        <a href="#intro">はじめに</a>
+        <a href="#why">どうして届かないの？</a>
+        <a href="#do">私たちがやること</a>
+        <a href="#regions">まずは二つの地域から</a>
+        <a href="#ask">あなたにお願い</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content" class="wrap" role="main">
+    <section class="hero reveal" aria-label="導入">
+      <p class="label">イントロダクション</p>
+      <h1>「助けを求められない子」に、<br><span style="background:linear-gradient(120deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent">出会える仕組みをつくる。</span></h1>
+      <p class="sub">見えないところで、助けを必要としている子がいます。待つのではなく、こちらから出会いに行き、まとめて支援へつなげる――そんなモデルを、まずは地域から。</p>
+      <div class="cta-row">
+        <a href="#intro" class="btn">読み進める</a>
+        <a href="#ask" class="btn secondary" aria-label="あなたにお願いへ移動">参加・応援の方法を見る</a>
+      </div>
+    </section>
+
+    <!-- ====== 本文（ユーザー提供テキストを反映） ====== -->
+    <section id="intro" class="scene reveal">
+      <div class="title">
+        <div class="num" aria-hidden="true">1</div>
+        <h2>はじめに</h2>
+      </div>
+      <div class="panel">
+        <p>見えないところで、助けを必要としている子がいます。家の事情で夜まで起きていたり、学校に行けなくなったり。家族の世話を一人で背負って、心がすりへってしまう子もいます。支援は「ある」のに、そこまでたどり着けていない子がいるのです。</p>
+      </div>
+    </section>
+
+    <section id="why" class="scene reveal">
+      <div class="title">
+        <div class="num" aria-hidden="true">2</div>
+        <h2>どうして届かないの？</h2>
+      </div>
+      <div class="grid cols-2">
+        <div class="panel">
+          <p class="chip">現状の前提</p>
+          <div class="bubble you">今の仕組みは「家族が自分で申し込む」ことが前提。</div>
+          <div class="bubble you">しんどい時ほど、複雑な手続きはできません。</div>
+          <div class="bubble you">役所も人手が足りず、外に探しに行くことが難しい。</div>
+        </div>
+        <div class="panel">
+          <p class="chip">結果として</p>
+          <div class="bubble fact">支援がばらばらで情報がつながりにくい。</div>
+          <div class="bubble fact">だから支援が届かなかったり、途中で切れてしまいます。</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="do" class="scene reveal">
+      <div class="title">
+        <div class="num" aria-hidden="true">3</div>
+        <h2>私たちがやること（3つ）</h2>
+      </div>
+      <div class="grid cols-3">
+        <div class="panel">
+          <p class="chip">1</p>
+          <h3 style="margin:8px 0 6px">会いに行く人をつくる</h3>
+          <p>待つのではなく、こちらから会いに行きます。困っている家庭と信頼関係をつくり、申請や病院・相談につながるお手伝いを、その場で一緒にします。</p>
+        </div>
+        <div class="panel">
+          <p class="chip">2</p>
+          <h3 style="margin:8px 0 6px">支援をまとめてつなぐ</h3>
+          <p>国が用意した6つの家庭支援を、必要に合わせて“まとめて”利用できるようにします。窓口が違っても、同じチームで話し合い、情報を共有して、必要な支援に迷わず届くようにします。</p>
+        </div>
+        <div class="panel">
+          <p class="chip">3</p>
+          <h3 style="margin:8px 0 6px">だれでも来られる場所をひらく</h3>
+          <p>登録いらずの居場所を週4日。おとなのカフェや保護者会も。施設の中で食べ物や学用品を安く買えるようにして、「ついで」に来やすい動線をつくります。面倒な手続きも、その場で一緒にできます。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="regions" class="scene reveal">
+      <div class="title">
+        <div class="num" aria-hidden="true">4</div>
+        <h2>まずは二つの地域から</h2>
+      </div>
+      <div class="panel">
+        <p>尼崎と葛飾で、私たちはこのモデルを試します。地域のみなさんとも力を合わせ、方法を磨いて、広げていきます。</p>
+      </div>
+    </section>
+
+    <section id="ask" class="scene reveal">
+      <div class="title">
+        <div class="num" aria-hidden="true">5</div>
+        <h2>あなたにお願い</h2>
+      </div>
+      <div class="grid cols-3">
+        <div class="panel">
+          <p class="chip">参加する</p>
+          <h3 style="margin:8px 0 6px">一緒に動く</h3>
+          <p>「助けを求められない子」に、出会える仕組みをつくりたい。現場や運営で力を貸してください。</p>
+          <p><a href="#" class="btn">参加の連絡をする</a></p>
+        </div>
+        <div class="panel">
+          <p class="chip">支援する</p>
+          <h3 style="margin:8px 0 6px">活動をささえる</h3>
+          <p>応援してくれる人を探しています。継続寄付や会員で、つながり続ける仕組みを一緒に。</p>
+          <p><a href="#" class="btn">寄付・会員について</a></p>
+        </div>
+        <div class="panel">
+          <p class="chip">広める</p>
+          <h3 style="margin:8px 0 6px">知ってもらう</h3>
+          <p>あなたの一言で、次の出会いが生まれます。SNSでのシェアも力になります。</p>
+          <div class="cta-row">
+            <a class="btn secondary" id="shareX">Xでシェア</a>
+            <a class="btn secondary" id="shareFB">Facebook</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene reveal">
+      <div class="panel">
+        <p class="label">最後に</p>
+        <h2>ここからの一歩が、誰かの生きやすさにつながる。</h2>
+        <p>このページは “読みやすさ” と “行動のしやすさ” にこだわって設計されています。リンク先の設定や配色の調整だけで、すぐに公開できます。</p>
+      </div>
+    </section>
+
+    <section class="footer" role="contentinfo">
+      <p>© 2025 Your Organization Name</p>
+      <p style="opacity:.7">Design-first storytelling template. Built with HTML + CSS + JS only.</p>
+    </section>
+  </main>
+
+  <script>
+    // スクロール進捗バー
+    const bar = document.getElementById('progressBar');
+    const onScroll = () => {
+      const h = document.documentElement;
+      const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight);
+      bar.style.height = (scrolled * 100) + '%';
+    };
+    document.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // フェードイン
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => e.isIntersecting && e.target.classList.add('in'));
+    }, { threshold: .1 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    // 共有ボタン（URLは現在のページ）
+    const shareURL = location.href;
+    const x = document.getElementById('shareX');
+    const fb = document.getElementById('shareFB');
+    if (x) x.addEventListener('click', () => {
+      const text = encodeURIComponent(document.title + " — 語り口で伝えるページ");
+      window.open(`https://twitter.com/intent/tweet?text=${text}&url=${encodeURIComponent(shareURL)}`, '_blank');
+    });
+    if (fb) fb.addEventListener('click', () => {
+      window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareURL)}`, '_blank');
+    });
+  </script>
+</body>
+</html>
